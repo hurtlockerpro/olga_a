@@ -1,0 +1,87 @@
+
+/*
+.border {
+    font-size: 50px;
+    border: 1px solid red !important;
+}
+*/
+/*
+div:before{
+    content: "\f13b";
+}*/
+
+.icon {
+    border: 4px solid white !important;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.icon > i.fab {
+    font-size: 25px;
+    position: relative;
+    top:10px;
+    left:12px;
+}
+.circles{
+    position: relative;
+    bottom: -20px;
+    
+}
+.circles > i{
+    font-size: 8px;
+    float: left;
+    
+} 
+
+
+
+#beforeafter::before{
+    content: '*';
+}
+
+#beforeafter::after{
+    content: '*';
+    color: red;
+}
+
+.phone::before{
+    content: "\f13c";
+    font-size: 18px;
+    color: red;
+    font-family: "Font Awesome 5 Free"
+
+}
+
+
+.progress {
+    margin-top: 10px;
+}
+
+.progress > span {
+    position: relative;
+    top: 8px;
+    left: 3px;
+    color: black;
+    font-weight: bold;
+}
+
+/* BIO */
+
+#bio::before{
+    background-image: url('/bootstrap/img/quotemark.png');
+    background-size: 30px 30px;
+    display: block;
+    width: 30px; 
+    height: 30px;
+    content: '\f10e';
+
+    position: relative;
+    top: 35px;
+    left: -35px;
+}
+
+#bio {
+    padding-left: 35px;
+}
