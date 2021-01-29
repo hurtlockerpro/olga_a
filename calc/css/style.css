@@ -1,0 +1,5 @@
+
+.container div:first-child > .col {
+    padding-left: 0;
+    padding-right: 0;
+}

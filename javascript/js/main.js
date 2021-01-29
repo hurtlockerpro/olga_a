@@ -218,4 +218,49 @@ function showItems(){
 }
 
 
+class Square
+{
+    width = 0
+    height = 0
 
+    constructor(width, height = 10){
+        this.setWidth(width)
+        this.setHeight(height)
+    }
+
+    setWidth(width){
+        //let x = 10
+        //return x
+        this.width = width
+    }
+    setHeight(height){
+        this.height = height
+    }
+
+    static showStaticValue(){
+        return "Hello showStaticValue"
+    }
+
+    drawSquare(){
+        return `<div style="width:${this.width}px;height:${this.height}px;border:1px solid black;"></div>`
+    }
+}
+
+console.log(Square.showStaticValue())
+
+let newSquare3 = new Square()
+document.getElementById('square').innerHTML = newSquare3.drawSquare()
+
+let newSquare2 = new Square(50, 50)
+document.getElementById('square').innerHTML += newSquare2.drawSquare()
+
+let newSquare = new Square()
+newSquare.setHeight(25)
+newSquare.setWidth(25)
+
+document.getElementById('square').innerHTML += newSquare.drawSquare()
+
+newSquare.setHeight(250)
+newSquare.setWidth(150)
+
+document.getElementById('square').innerHTML += newSquare.drawSquare()
