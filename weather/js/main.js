@@ -108,3 +108,69 @@ weatherAPI.unit = weatherAPI.units.metric
 weatherAPI.getWeatherData()
 console.log('-- end --')
 
+
+
+
+/* functions */
+// 1 variant
+let subtruct = function(x, y){
+    // logic
+    return x * y
+}
+
+console.log (subtruct(5, 5))
+// 2 variant
+let subtruct2 = (x, y) => x * y
+console.log (subtruct2(15, 15))
+
+// 3 variant
+let subtruct3 = (x, y) => {
+    if (x == 15) x *= 10
+    return x * y
+}
+console.log (subtruct3(15, 15))
+
+// 4 
+let subtruct4 = x => x * 1
+
+console.log (subtruct4(100))
+
+// 5 variant
+let obj = {
+    firstname:"Vladimir",
+    lastname:"Kjahrenov",
+    hoursWorked: (a, b) => {
+        if (a < 0) a = 0
+        if (b < 0) b = 0
+        return a / b
+    },
+    hoursWorked2: function(a = 2, b, ...args) {
+        if (a < 0) a = 0
+        if (b < 0) b = 0
+        console.log('values> ', args)
+        return a / b
+    }
+}
+
+console.log (obj.firstname, ' ', obj.lastname, ' ', obj.hoursWorked(15, 5))
+
+console.log(obj.hoursWorked2(1,1, 2,3,4,5))
+
+
+
+// A nested function example
+function getScore() {
+    var num1 = 2,
+        num2 = 3;
+  
+    function add() {
+      return 'scored ' + (num1 + num2);
+    }
+  
+    return add();
+  }
+  
+  console.log(getScore()); // Returns "Chamahk scored 5"
+
+
+  let str =  ' \' '
