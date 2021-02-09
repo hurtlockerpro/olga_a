@@ -1,4 +1,3 @@
-"use strict";
 var _Months;
 let a = "Hello typescript";
 console.log(a);
@@ -10,6 +9,7 @@ var Months;
 })(Months || (Months = {}));
 class Test {
     constructor(x) {
+        this.name = "Vladimir";
         this.result = '';
         this.result2 = 0;
         this.arr = [];
@@ -23,6 +23,9 @@ class Test {
         _Months.set(this, { January: 8, February: 6, March: 4 });
         this.m = Months.February;
         this.result2 = x;
+    }
+    getFullName(lastname) {
+        return ' Vladimir ' + lastname;
     }
     multiply(x, y) {
         return 'result: ' + (x * y);

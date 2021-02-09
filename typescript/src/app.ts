@@ -26,6 +26,7 @@ class Test implements IPerson{
         name:'',
         age:0,
         getFullName: function(lastname:string):string{
+            // logic
             return ' Vladimir ' + lastname;
         }
         //let v = (event) => {}
