@@ -36,5 +36,43 @@ app.get('/', function (req, res) {
 app.get('/books', function (req, res) {
     res.send(books)
 })
+
+app.delete('/books/:isbn', function (req, res) {
+    
+    console.log(req.params.isbn)
+    let status = 404
+    let resMessage = 'No book found to delete'
+
+    books.forEach((book, index) => {
+        if (book.isbn == req.params.isbn)
+        {
+            books.splice(index, 1)
+            status = 200
+            resMessage = 'Book successfully deleted'
+        }
+    })
+    
+    res.status(status).send(resMessage + ': ' + req.params.isbn)
+})
+
+
+app.get('/book/:isbn', function (req, res) {
+    
+    console.log(req.params.isbn)
+    let status = 404
+    let resMessage = 'No book found'
+    let bookItem = null
+
+    books.forEach((book, index) => {
+        if (book.isbn == req.params.isbn)
+        {
+            bookItem = book
+            status = 200
+            resMessage = 'Book successfully found'
+            //break;
+        }
+    })
+    res.status(status).send(bookItem)
+})
  
 app.listen(3000, () => console.log('server is working'))
