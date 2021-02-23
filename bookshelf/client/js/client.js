@@ -124,6 +124,41 @@ let modalBody = document.querySelector('#bookModal .modal-body')
 let modalTitle = document.querySelector('#bookModal .modal-title')
 
 
+document.getElementById('btnEdit').addEventListener('click', function(){
+    console.log('click save button')
+    //console.log($('#frm').serialize());
+
+    if (checkInputValues() == false)
+    {
+        let ajaxUrl = url + ':' + port + "/book/edit"
+        if (isbnGlobal == '') ajaxUrl = url + ':' + port + "/book/insert"
+
+        $.ajax({
+            url: ajaxUrl,
+            type: "POST",
+            data: $('#frm').serialize(),
+            success:function(data) {
+                console.log('data: ' + data)
+                getBooks()
+                isbnGlobal = ''
+            },
+            error: function (err, errStatus, errMessage) {
+                console.log('ERROR OCCURED on POST: ', errStatus, ' ', errMessage);
+            }
+        });
+    }
+})
+
+$('#bookModal').on('hide.bs.modal', function (event) {
+    console.log('modal window is closed now ')
+    isbnGlobal = ''
+})
+
+
+document.getElementById('btnNew').addEventListener('click', function(){
+    console.log('click new button')
+    $('#bookModal').modal('show')
+})
 
 $.ajax({
     url: "form.html",
@@ -131,6 +166,29 @@ $.ajax({
         modalBody.innerHTML = data
     }
 });
+
+
+function checkInputValues(){ // bool
+    let error = false;
+    let frm = document.querySelectorAll("#frm input");
+    frm.forEach(frmElement => {
+        if (frmElement.value == '')
+        {
+            frmElement.classList.add('error')
+            // restore gray border
+            frmElement.addEventListener('keydown', function(event){
+                if (event.target.value.toString().length == 3)
+                {
+                    event.target.classList.remove('error')
+                    event.target.classList.add('default')
+                }
+            })
+            error = true
+        }
+    })
+
+    return error
+}
 
 
 getBooks();
