@@ -1,0 +1,50 @@
+<p>products works!</p>
+
+
+<ul>
+    <li *ngFor="let product of products">{{ product }}</li>
+</ul>
+
+<!--
+<p *ngIf="isTrue;else myTemplate">
+    this is paragraph!
+</p>-->
+
+<p *ngIf="isTrue; then myTemplate1 else myTemplate2">
+    this is paragraph!
+</p>
+<ng-template #myTemplate1><div>Hello from template 1 (then) !</div></ng-template>
+<ng-template #myTemplate2><div>Hello from template 2 (else) !</div></ng-template>
+
+
+
+<button (click)="changeVisibility()">changeVisibility</button>
+
+
+
+<ul>
+    <li *ngFor="let product of products;let index = index">{{ product }} - {{ index }}</li>
+</ul>
+
+
+<!-- switch -->
+<div [ngSwitch]="count">
+
+    <div *ngSwitchCase="10"> this is 10 {{ count }}</div>
+    <div *ngSwitchCase="11"> this is 11 {{ count }}</div>
+    <div *ngSwitchCase="15"> this is 15 {{ count }}</div>
+    <div *ngSwitchDefault>default number: {{ count }}</div>
+
+</div>
+
+<button (click)="increment()">+</button>
+<button (click)="decrement()">-</button>
+
+
+
+<div>Description from app (parent):{{ productDescription }}</div>
+
+<app-details [productTotal]="childProductTotal" (onChangeFromChild)="addProductToBasket($event)"></app-details>
+
+<button (click)="incrementProductTotal()">+</button>
+<button (click)="decrementProductTotal()">-</button>

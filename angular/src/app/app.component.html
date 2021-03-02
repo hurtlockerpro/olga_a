@@ -1,0 +1,40 @@
+<h1>This is {{ title }} project! </h1>
+
+<button (click)="showAlert('Vladimir')">Показать алерт!</button>
+
+
+<input type="text" [value]="firstname">
+
+
+<div>
+  <div>result: {{ result }}</div>
+
+  <button (click)="increment()">+</button>
+  <button (click)="decrement($event)">-</button>
+</div>
+
+<!--
+<div>
+  Hello {{ lastname }}
+
+  <input type="text" [(ngModel)]="lastname">
+</div>-->
+
+<div class="box" [class.isgreenbox]="isGreen"></div>
+<div class="box" [style.background-color]="isGreen ? 'green' : 'red'"></div>
+<!--<input type="checkbox" [(ngModel)]="isGreen">-->
+<button (click)="changeColor()">Green</button>
+
+<!-- logic ? true : false -->
+
+<app-products *ngIf='showProductsComponent' [productDescription]="productDescription"></app-products>
+
+<app-details [productTitle]="parentProductTitle"></app-details>
+
+<input type="text" [(ngModel)]="productDescription">
+
+<a (click)="updateChild()">Show/Hide Products Component </a><br/>
+            
+
+<router-outlet></router-outlet>
+
