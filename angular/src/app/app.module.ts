@@ -7,17 +7,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { DetailsComponent } from './details/details.component';
+import { MyformsComponent } from './myforms/myforms.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NotFountComponent } from './not-fount/not-fount.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
-    DetailsComponent
+    DetailsComponent,
+    MyformsComponent,
+    NotFountComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

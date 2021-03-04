@@ -1,0 +1,38 @@
+<p>myforms works!</p>
+
+<form>
+    <div class="form-group">
+        <label for="exampleInputUsername">Username</label>
+        <input type="text" required #username="ngModel" name="username" [value]="users[0].username" [(ngModel)]="_user.username" class="form-control" id="exampleInputUsername">
+        <div [hidden]="username.valid || username.untouched" class="alert alert-danger">[ERROR] Inseret Username!</div>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <!-- #email="ngModel" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" -->
+      <input type="email" required email  name="email" [value]="users[0].email" [(ngModel)]="_user.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <!--<div [hidden]="email.valid || email.untouched" class="alert alert-danger">[ERROR] Email is worng!</div>-->
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Choose user access rights</label>
+        <select name="accessRights" class="form-control" id="exampleFormControlSelect1" [(ngModel)]="_user.accessRights">
+          <option *ngFor="let item of selectOptions" [value]="item" [selected]="item == users[0].accessRights" >{{ item }}</option>
+        </select>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" name="isLogedIn" [value]="1" [checked]="users[0].isLogedIn" [(ngModel)]="_user.isLogedIn" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Is logeged in</label>
+    </div>
+    <button [disabled]="username.invalid" (click)="addUser()" class="btn btn-primary">Submit</button>
+  </form>
+
+  <div>
+      <h3>Users</h3>
+      <ol>
+            <li *ngFor="let user of users">{{ user.username }}: {{ user.email}} - AccessRights: {{ user.accessRights }}</li>
+      </ol>
+  </div>
