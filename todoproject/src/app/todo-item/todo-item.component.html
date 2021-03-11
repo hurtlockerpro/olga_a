@@ -1,0 +1,12 @@
+<div class="m-2" >
+    <form class="form-inline">
+        <div class="form-group w-75 form-check">
+            <input type="checkbox" name="completed" class="form-check-input" id="exampleCheck_{{todoItem.id}}" (change)="onChangeTodoItem()" [checked]="todoItem.isCompleted">
+            <label class="form-check-label" [ngClass]="setStyle()" for="exampleCheck_{{todoItem.id}}">{{ todoTitle }}</label>
+        </div>
+
+        <div class="form-group w-25">
+            <button type="button" class="btn btn-danger" (click)="onDelete(todoItem.id)">delete</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,6 @@
+<h3>ToDo-s for today:</h3>
+
+
+<app-todo-item *ngFor="let todo of items" [todoTitle]="todo.title" [todoItem]="todo" (onDeleteTodoItem)="deleteTodoItem($event)"></app-todo-item>
+
+<app-todo-add (onInsertTodoItem)="addNewTodoItem($event)"></app-todo-add>

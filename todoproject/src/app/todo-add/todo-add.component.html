@@ -1,0 +1,9 @@
+<h3>Add new ToDo item!</h3>
+
+<form (ngSubmit)="InsertNewTodoItem()">
+    <div class="form-group">
+      <label for="inputTodoTitle">Insert ToDo title</label>
+      <input type="text"  name="todoTitle" [(ngModel)]="todoTitle" class="form-control" id="inputTodoTitle">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
