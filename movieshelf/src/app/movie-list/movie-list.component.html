@@ -1,0 +1,9 @@
+<h3>Movies</h3>
+
+<div *ngFor="let movie of movies.results">
+    <h3>{{ movie.original_title }}</h3>
+    <div>{{ movie.overview }}</div>
+    <a href="/movies/{{ movie.id }}/details">Details</a>
+</div>
+
+
